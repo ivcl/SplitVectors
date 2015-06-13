@@ -1,0 +1,11 @@
+Compile it:
+cd src
+make
+make install
+cd ..
+make
+
+Run:
+./run
+
+Please note that in region_s3_0.2.data file FA values are larger than 02. But in this versio, we don't cut off any data.
