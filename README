@@ -1,0 +1,13 @@
+There are three folders.
+
+1. ExperimentSplitVectorsLogDirectText	:
+Program and documents of experiment on  evaluation  and comparison of 4 encoding approahces: linear, log, SplitVectors and text display.
+
+2. PerceptualUniformColoring:
+Program to generate uniform colors.
+
+3. ToolSplitVectorsInCAVE:
+Program to generate data which can be displayed in CAVE.
+
+
+Please note that only program and documents are in the directory, and data can be downloaded from our server.
