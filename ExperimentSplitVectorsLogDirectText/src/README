@@ -1,0 +1,10 @@
+
+cd jcUtil
+make
+make install
+
+cd ../
+make
+
+run those run files
+

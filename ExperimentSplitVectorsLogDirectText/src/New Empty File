@@ -1,0 +1,87 @@
+	if(ifstereo&&ifnext==1)
+	{
+	    XYZ r;
+	    double ratio, radians, wd2, ndfl;
+	    double left, right, top, bottom;
+
+	    /* Clip to avoid extreme stereo */
+	    double near = camera.focallength / 5;
+	    double far = (Yminmax[1]-Yminmax[2]) * 40.0;
+
+	    /* Misc stuff */
+	    ratio = camera.screenwidth / (double) camera.screenheight;
+	    radians = DTOR * camera.aperture / 2.;
+	    wd2 = near * tan(radians);
+	    ndfl = near / camera.focallength;
+
+	    /* Derive the two eye positions */
+	    CROSSPROD(camera.vd, camera.vu, r);
+	    Normalise(&r);
+	    r.x *= camera.eyesep / 2.0;
+	    r.y *= camera.eyesep / 2.0;
+	    r.z *= camera.eyesep / 2.0;
+
+	    // left eye
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+
+		left = -ratio * wd2 - 0.5 * camera.eyesep * ndfl;
+		right = ratio * wd2 - 0.5 * camera.eyesep * ndfl;
+		top = wd2;
+		bottom = -wd2;
+		glFrustum(left, right, bottom, top, near*2, far);
+
+		glMatrixMode(GL_MODELVIEW);
+		glDrawBuffer(GL_BACK_RIGHT);
+		glLoadIdentity();
+		gluLookAt(camera.vp.x + r.x, camera.vp.y + r.y, camera.vp.z + r.z,
+			camera.vp.x + r.x + camera.vd.x,
+			camera.vp.y + r.y + camera.vd.y,
+			camera.vp.z + r.z + camera.vd.z,
+			camera.vu.x, camera.vu.y, camera.vu.z);
+
+		glPushMatrix();
+		glScalef(120,120,120);
+		Draw_Everything();
+		glPopMatrix();
+
+	    // right eye
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+
+		left = -ratio * wd2 + 0.5 * camera.eyesep * ndfl;
+		right = ratio * wd2 + 0.5 * camera.eyesep * ndfl;
+		top = wd2;
+		bottom = -wd2;
+		glFrustum(left, right, bottom, top, near*2, far);
+
+		glMatrixMode(GL_MODELVIEW);
+		glDrawBuffer(GL_BACK_LEFT);
+		glLoadIdentity();
+		gluLookAt(camera.vp.x - r.x, camera.vp.y - r.y, camera.vp.z - r.z,
+					camera.vp.x - r.x + camera.vd.x,
+					camera.vp.y - r.y + camera.vd.y,
+					camera.vp.z - r.z + camera.vd.z,
+					camera.vu.x, camera.vu.y, camera.vu.z);
+		glPushMatrix();
+		glScalef(120,120,120);
+		//glTranslatef(0.,0.,100);
+		Draw_Everything();
+		glPopMatrix();
+	}
+	else
+	{
+	  	glMatrixMode(GL_PROJECTION);
+	  	glLoadIdentity();
+		gluPerspective(45, 1.0*image_width/image_height,0.1, 10000);
+		glMatrixMode(GL_MODELVIEW);
+	  	glLoadIdentity();
+		gluLookAt(0,0,5.5,
+		      0,0,0,
+		      0, 1, 0);
+
+		glPushMatrix();
+		Draw_Everything();
+		//Draw_2D();
+		glPopMatrix();
+	}
