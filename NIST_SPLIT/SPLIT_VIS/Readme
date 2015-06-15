@@ -1,0 +1,63 @@
+%SPLIT
+
+OS: CentOS 6.4/6.5
+Compiler: gcc 
+Library: VTK is required to create new contours.
+
+
+Data format:
+line1: position_x, position_y, position_z, num_1, num_2, velocity_1, velocity_2, velcotiy_3, density
+.
+.
+.
+.
+
+
+Interaction
+1 Menu
+2 Button: 
+	r/R: rotate sphere legend independently/dependently
+	h: Home button
+3 Load file (Please note that # of contours and ratio to generate contours are in the input file, and can be activated by a button on the GUI menu)
+
+
+Compile:
+
+Method 1:
+in NIST/QDOT_Vis/Vis directory
+cd src
+cd jcUtil
+make
+make install
+cd ..
+cd LU
+make
+make install
+cd ..
+cd EMclustering
+make
+make install
+cd ..
+make
+make install
+cd ..
+cd prog
+make
+make install
+cd ..
+
+Method 2:
+In NIST/QDOT_Vis/Vis directory
+make
+
+Run:
+./run3Dglyphz2z
+or
+./run3Dglyphz10z
+or
+./run3Dglyphxpy2z
+or
+./run3Dglyphxpy10z
+
+
+                                      
