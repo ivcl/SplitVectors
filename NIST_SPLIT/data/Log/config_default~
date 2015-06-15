@@ -1,0 +1,93 @@
+#Data
+../../data/2014Mar
+spin_proj_norm_vs_pos_p_v_xpy_2z
+../../data/2014Mar
+spin_proj_norm_vs_pos_p_v_z_2z
+#VTK_Data
+../../data/vtkdata/xpy_2z/spin_proj_norm_vs_pos_p_v_xpy_2z_TL109l
+../../data/vtkdata/z_2z/spin_proj_norm_vs_pos_p_v_z_2z_TL109l
+#Log
+../../data/Log
+#Pictures
+../../data/Pictures
+#Temp_File
+../../data/tmp/
+#Left_window(0:magnitude,1:orientation,2:2D_map)
+0
+#Right_window(0:magnitude,1:orientation,2:2D_map)
+1
+#Magnitude_Encoding(0:Linear,1:SplitVectors)
+1
+#Projection_of_Aggregation(1:on,0:off)
+0
+#Semitransparent_data_outside_ROI_Box(1:on,0:off)
+0
+#Z_layer
+-10
+#Input_Vector
+0.5 0.5 0
+#Enable_select_one_item(1:on,0:off)
+0
+#Min_degree_of_brightness
+18
+#Ratio_for_Contours_Generation
+1 0.5 
+1 0.5
+#Num_of_Magnitude_Clusters
+30
+30
+#Num_of_Orientation_Clusters
+30
+30
+#Num_of_Magnitude_Clusters(ROI)
+10
+10
+#Num_of_Orientation_Clusters(ROI)
+10
+10
+#Visible
+#Cutting_Plane(1:on,0:off)
+1
+#ROI_Box(1:on,0:off)
+1
+#Z_Plane(1:on,0:off)
+1
+#Contour_Projection(1:On,0:off)
+1
+#Contour(1:On,0:off)
+1
+#Magnitude_Legend_(original)(1:On,0:off)
+1
+#Magnitude_Legend_(contour)(1:On,0:off)
+1
+#Magnitude_Legend_(ROI)(1:On,0:off)
+1
+#Orientation_Legend_(original)(1:On,0:off)
+1
+#Orientation_Legend_(contour)(1:On,0:off)
+1
+#Orientation_Legend_(ROI)(1:On,0:off)
+1
+#Sum_(of_magnitude)(1:On,0:off)
+1
+#Slider(1:On,0:off)
+1
+#Bounding_Box(1:On,0:off)
+1
+#2D_Legend(1:On,0:off)
+1
+#Visible_range_of_magnitude
+1e-8 1e-4
+#Visible_xy_angle_of_orientation
+0 90
+#Visible_z_angle_of_orientation
+-90 90
+#Transformation_Matrix
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
