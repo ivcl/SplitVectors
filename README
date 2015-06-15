@@ -7,7 +7,10 @@ Program and documents of experiment on  evaluation  and comparison of 4 encoding
 Program to generate uniform colors.
 
 3. ToolSplitVectorsInCAVE:
-Program to generate data which can be displayed in CAVE.
+Program to generate data which can be displayed in CAVE
+
+4. SPLIT tools
+Tool for QDOT data
 
 
 Please note that only program and documents are in the directory, and data can be downloaded from our server.
@@ -17,3 +20,7 @@ Please note that only program and documents are in the directory, and data can b
 2. Coloring data: http://ivcl.umbc.edu/Projects/NIST_Project/colordata/data.tar.gz
 
 3. CAVE data: http://ivcl.umbc.edu/Projects/NIST_Project/cavedata/data.tar.gz
+
+4. SPLIT data: 
+      Original data: http://ivcl.umbc.edu/Projects/NIST_Project/2014Mar/data.tar.gz
+      VTK data: http://ivcl.umbc.edu/Projects/NIST_Project/2vtkdata/data.tar.gz
