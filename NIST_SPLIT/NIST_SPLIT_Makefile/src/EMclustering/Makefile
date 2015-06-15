@@ -1,0 +1,61 @@
+#!smake
+#  @@ Makefile for flow vis lib
+#  @@ Jian Chen (jichen@umbc.edu)
+#
+
+MACHINE= $(shell uname -s)
+VTKPath = /usr/include/vtk
+#VTKPath = /usr/include/vtk
+
+ifeq ($(MACHINE),Darwin)
+	OPENGL_INC= -FOpenGL -I/usr/include/vtk 
+	OPENGL_LIB= -framework OpenGL -framework GLUT -framework Cocoa 
+	LLDLIBS = -lm
+else
+	OPENGL_INC= -I/usr/include
+	OPENGL_LIB= -L/usr/lib64
+	LLDLIBS = -lglut -lGL -lGLU -lGL -lXmu -lXext -lX11 -lm
+endif
+
+CXX=g++ 
+
+COMPILER_FLAGS= -O3 -fopenmp -g
+
+INCPATH= $(OPENGL_INC)
+LIBS= $(OPENGL_LIB) $(LLDLIBS) 
+
+TARGETS = libem-1.0.a
+
+SRCS =emgm.cpp\
+colorsEM.cpp\
+dataProcess.cpp
+
+OBJECTS = emgm.o\
+colorsEM.o\
+dataProcess.o
+
+default: $(TARGETS)
+
+OBJS = $(SRCS:.cpp=.o)
+.SUFFIXES: .o .cpp
+
+.cpp.o:
+	$(CXX) -c $(COMPILER_FLAGS) $(INCLUDE) -o $@ $< 
+
+$(TARGETS): $(OBJECTS)
+	ar -ruv libem-1.0.a *.o
+
+install: $(TARGETS)
+	cp ./libem-1.0.a ../../lib
+
+emgm.o: emgm.cpp emgm.h
+	$(CXX) -O3 -fopenmp -c $(CXXFLAGS) $(INCPATH) -o emgm.o emgm.cpp
+
+colorsEM.o: colorsEM.cpp colorsEM.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o colorsEM.o colorsEM.cpp
+
+dataProcess.o: dataProcess.cpp dataProcess.h
+	$(CXX) -O3 -fopenmp -c $(CXXFLAGS) $(INCPATH) -o dataProcess.o dataProcess.cpp
+
+clean:
+	rm -f $(OBJS) $(TARGETS) *~
